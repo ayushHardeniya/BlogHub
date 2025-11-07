@@ -29,7 +29,7 @@ class BlogHub {
         const sampleUsers = [
             {
                 username: 'john_doe',
-                name: 'John Doe',
+                name: 'Abbas Khan',
                 bio: 'Tech enthusiast and software developer',
                 avatar: 'https://i.pravatar.cc/150?img=1'
             },
