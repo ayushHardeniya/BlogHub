@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogHub - Share Your Stories</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><i class="fas fa-blog"></i> BlogHub</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn" onclick="showSection('feed')">
+                    <i class="fas fa-home"></i> Feed
+                </button>
+                <button class="nav-btn" onclick="showSection('write')">
+                    <i class="fas fa-pen"></i> Write
+                </button>
+                <button class="nav-btn" onclick="showSection('profile')">
+                    <i class="fas fa-user"></i> Profile
+                </button>
+                <div class="user-info">
+                    <span class="current-user">Welcome, <span id="currentUserName">Guest</span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to BlogHub</h2>
+            <p>Enter your username to get started</p>
+            <form id="loginForm">
+                <input type="text" id="usernameInput" placeholder="Enter your username" required>
+                <button type="submit">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Feed Section -->
+        <section id="feedSection" class="content-section active">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> Latest Stories</h2>
+                <div class="feed-controls">
+                    <input type="text" id="searchInput" placeholder="Search posts..." class="search-input">
+                    <select id="categoryFilter" class="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Business">Business</option>
+                        <option value="Science">Science</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Food">Food</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                    </select>
+                </div>
+            </div>
+            <div id="feedContainer" class="posts-container">
+                <!-- Posts will be dynamically rendered here -->
+            </div>
+        </section>
+
+        <!-- Write Section -->
+        <section id="writeSection" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-pen-fancy"></i> Write Your Story</h2>
+            </div>
+            <div class="write-container">
+                <form id="blogForm" class="blog-form">
+                    <div class="form-group">
+                        <input type="text" id="title" name="title" placeholder="Write your story title..." required>
+                    </div>
+                    <div class="form-group">
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="Business">Business</option>
+                            <option value="Science">Science</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Food">Food</option>
+                            <option value="Health">Health</option>
+                            <option value="Education">Education</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="content" name="content" placeholder="Tell your story..." rows="12" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="save-draft-btn">Save Draft</button>
+                        <button type="submit" class="publish-btn">Publish Story</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profileSection" class="content-section">
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img id="profileAvatar" src="" alt="Profile Avatar">
+                    </div>
+                    <div class="profile-details">
+                        <h2 id="profileName">Your Name</h2>
+                        <p id="profileBio">Passionate writer and storyteller</p>
+                        <div class="profile-stats">
+                            <span class="stat">
+                                <strong id="userPostCount">0</strong> Stories
+                            </span>
+                            <span class="stat">
+                                <strong id="userLikesCount">0</strong> Likes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-content">
+                <h3>Your Stories</h3>
+                <div id="userPostsContainer" class="posts-container">
+                    <!-- User's posts will be rendered here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
